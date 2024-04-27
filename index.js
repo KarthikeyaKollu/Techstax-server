@@ -12,6 +12,9 @@ app.use(cors());
 var csvData = null;
 
 
+app.get('/', (req, res) => {
+  res.send('Hello, World!'); // Send a response of "Hello, World!"
+});
 
 
 app.post('/upload-workflow', upload.single('file'), (req, res) => {
@@ -80,7 +83,7 @@ function processFilterData() {
     // Implement logic to process data and convert column values to lowercase
     console.log("fitering the data .............")
     const convertedData = csvData
-        .split('\n')
+        
         .map(line => line.split(',').map(convertToLowerCase).join(',')) // Convert to lowercase
         .join('\n');
 
